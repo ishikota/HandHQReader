@@ -1,0 +1,40 @@
+Stage #3064273616: Holdem  No Limit $0.50 - 2009-07-14 11:53:11 (ET)
+Table: LEOPARD DR (Real Money) Seat #2 is the dealer
+Seat 2 - RmiSCqX5vDHT5uScRpaJ9g ($38.47 in chips)
+Seat 3 - dZLpq1X1Bx/8a42WZCIPMg ($17.35 in chips)
+Seat 4 - O3s9IsmHGwUXmVX06sW5wA ($48.75 in chips)
+Seat 5 - T3thDbHTsVbuaHli6S6CwA ($38.50 in chips)
+Seat 6 - bqxbwwzsxHfXmR91a5RyHQ ($45.10 in chips)
+Seat 8 - JTO6EccIq+pp0M3XS8WBng ($27.17 in chips)
+Seat 9 - XhnpogjPIJM10FhxKg9y3g ($49.75 in chips)
+Seat 1 - DMOv04Uylf778tujCCMAfQ ($20 in chips)
+dZLpq1X1Bx/8a42WZCIPMg - Posts small blind $0.25
+O3s9IsmHGwUXmVX06sW5wA - Posts big blind $0.50
+DMOv04Uylf778tujCCMAfQ - sitout (wait for BB)
+*** POCKET CARDS ***
+T3thDbHTsVbuaHli6S6CwA - Folds
+bqxbwwzsxHfXmR91a5RyHQ - Folds
+JTO6EccIq+pp0M3XS8WBng - Raises $1 to $1
+XhnpogjPIJM10FhxKg9y3g - Calls $1
+RmiSCqX5vDHT5uScRpaJ9g - Folds
+dZLpq1X1Bx/8a42WZCIPMg - Calls $0.75
+O3s9IsmHGwUXmVX06sW5wA - Folds
+*** FLOP *** [5h Ah Jh]
+dZLpq1X1Bx/8a42WZCIPMg - Checks
+JTO6EccIq+pp0M3XS8WBng - Bets $1.75
+XhnpogjPIJM10FhxKg9y3g - Folds
+dZLpq1X1Bx/8a42WZCIPMg - Folds
+JTO6EccIq+pp0M3XS8WBng - returned ($1.75) : not called
+*** SHOW DOWN ***
+JTO6EccIq+pp0M3XS8WBng - Does not show
+JTO6EccIq+pp0M3XS8WBng Collects $3.35 from main pot
+*** SUMMARY ***
+Total Pot($3.50) | Rake ($0.15)
+Board [5h Ah Jh]
+Seat 2: RmiSCqX5vDHT5uScRpaJ9g (dealer) Folded on the POCKET CARDS
+Seat 3: dZLpq1X1Bx/8a42WZCIPMg (small blind) Folded on the FLOP
+Seat 4: O3s9IsmHGwUXmVX06sW5wA (big blind) Folded on the POCKET CARDS
+Seat 5: T3thDbHTsVbuaHli6S6CwA Folded on the POCKET CARDS
+Seat 6: bqxbwwzsxHfXmR91a5RyHQ Folded on the POCKET CARDS
+Seat 8: JTO6EccIq+pp0M3XS8WBng collected Total ($3.35) HI:($3.35)  [Does not show]
+Seat 9: XhnpogjPIJM10FhxKg9y3g Folded on the FLOP

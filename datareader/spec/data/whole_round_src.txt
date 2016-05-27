@@ -1,0 +1,45 @@
+Stage #3064280128: Holdem  No Limit $0.50 - 2009-07-14 11:53:16 (ET)
+Table: HUNTER DR (Real Money) Seat #5 is the dealer
+Seat 5 - J4+irtFaN4tesOvvW9zmAQ ($5.23 in chips)
+Seat 6 - 3g8KJRlUL9ZhWJKXiWwg5w ($39.75 in chips)
+Seat 1 - 4fwDiQ3UJvvDI8cQtLtpaw ($46.75 in chips)
+Seat 2 - wFNV0TSwysA+SPvQBPZ+qA ($36.90 in chips)
+Seat 3 - e72Jgkti0p3WKV6rYUkO0Q ($2.60 in chips)
+Seat 4 - P/MroR8tZRfKDMresEBkRQ ($28.65 in chips)
+3g8KJRlUL9ZhWJKXiWwg5w - Posts small blind $0.25
+4fwDiQ3UJvvDI8cQtLtpaw - Posts big blind $0.50
+*** POCKET CARDS ***
+wFNV0TSwysA+SPvQBPZ+qA - Folds
+e72Jgkti0p3WKV6rYUkO0Q - Calls $0.50
+P/MroR8tZRfKDMresEBkRQ - Folds
+J4+irtFaN4tesOvvW9zmAQ - Calls $0.50
+3g8KJRlUL9ZhWJKXiWwg5w - Calls $0.25
+4fwDiQ3UJvvDI8cQtLtpaw - Checks
+*** FLOP *** [10d Kh 3h]
+3g8KJRlUL9ZhWJKXiWwg5w - Checks
+4fwDiQ3UJvvDI8cQtLtpaw - Checks
+e72Jgkti0p3WKV6rYUkO0Q - Checks
+J4+irtFaN4tesOvvW9zmAQ - Checks
+*** TURN *** [10d Kh 3h] [5s]
+3g8KJRlUL9ZhWJKXiWwg5w - Checks
+4fwDiQ3UJvvDI8cQtLtpaw - Bets $1
+e72Jgkti0p3WKV6rYUkO0Q - Folds
+J4+irtFaN4tesOvvW9zmAQ - Calls $1
+3g8KJRlUL9ZhWJKXiWwg5w - Folds
+*** RIVER *** [10d Kh 3h 5s] [8h]
+4fwDiQ3UJvvDI8cQtLtpaw - Bets $4
+J4+irtFaN4tesOvvW9zmAQ - All-In $3.73
+4fwDiQ3UJvvDI8cQtLtpaw - returned ($0.27) : not called
+*** SHOW DOWN ***
+4fwDiQ3UJvvDI8cQtLtpaw - Shows [8d 10s] (Two Pair, tens and eights)
+J4+irtFaN4tesOvvW9zmAQ - Mucks
+4fwDiQ3UJvvDI8cQtLtpaw Collects $10.41 from main pot
+*** SUMMARY ***
+Total Pot($11.46) | Rake ($0.55) | Jackpot Rake ($0.50)
+Board [10d Kh 3h 5s 8h]
+Seat 1: 4fwDiQ3UJvvDI8cQtLtpaw (big blind) won Total ($10.41) HI:($10.41) with Two Pair, tens and eights [8d 10s - P:10s,B:10d,B:8h,P:8d,B:Kh]
+Seat 2: wFNV0TSwysA+SPvQBPZ+qA Folded on the POCKET CARDS
+Seat 3: e72Jgkti0p3WKV6rYUkO0Q Folded on the TURN
+Seat 4: P/MroR8tZRfKDMresEBkRQ Folded on the POCKET CARDS
+Seat 5: J4+irtFaN4tesOvvW9zmAQ (dealer) HI: [Mucked] [5h Ac]
+Seat 6: 3g8KJRlUL9ZhWJKXiWwg5w (small blind) Folded on the TURN
