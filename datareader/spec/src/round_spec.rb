@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'date'
 
 describe Round do
-  let(:round) { Round.new }
+  let(:round) { Round.new(src) }
 
   let(:src) do
     f = File.open(fname)
@@ -15,7 +15,6 @@ describe Round do
     let(:fname) { "spec/data/sitout_round_src.txt" }
 
     it "should setup" do
-      round.read_src(src)
       expect(round.round_id).to eq "3064273616"
       expect(round.rule).to eq "Holdem  No Limit"
       expect(round.blind).to eq 0.5
@@ -32,12 +31,19 @@ describe Round do
     let(:fname) { "spec/data/whole_round_src.txt" }
 
     it "should setup" do
-      round.read_src(src)
       expect(round.streets.size).to eq 4
       expect(round.streets[0].name).to eq "POCKET CARDS"
       expect(round.streets[1].name).to eq "FLOP"
       expect(round.streets[2].name).to eq "TURN"
       expect(round.streets[3].name).to eq "RIVER"
+    end
+  end
+
+  describe "error handling" do
+    let(:fname) { "spec/data/round1.txt" }
+
+    it "should setup" do
+      expect(round.round_id).to eq "3017243630"
     end
   end
 

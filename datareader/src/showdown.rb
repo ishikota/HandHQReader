@@ -24,15 +24,24 @@ class Showdown
       if md = src.match(/ - Does not show$/)
         @result_type = DOES_NOT_SHOW
         @result = nil
-      elsif md = src.match(/ Collects \$([\d\.]+)/)
+      elsif md = src.match(/ Collects \$([\d\.,]+)/)
         @result_type = COLLECT_CHIP
-        @result = md[1].to_f
+        @result = md[1].gsub(",","").to_f
       elsif md = src.match(/ Mucks$/)
         @result_type = MUCK
         @result = nil
-      elsif md = src.match(/ - Shows \[(.*)\] \((.*), (.*)\)/)
+      elsif md = src.match(/ - Shows \[(.*)\]/)
+        handmd = src.match(/\((.*), (.*)\)/)
+        if handmd.nil?
+          highmd = src.match(/\((.*)\)/)
+          hand = highmd ? "High card" : "Unknown"
+          strength = highmd ? src.match(/\((.*)\)/)[1] : "Unknown"
+        else
+          hand = handmd[1]
+          strength = handmd[2]
+        end
         @result_type = SHOWS
-        @result = { "hole" => md[1].split, "hand" => md[2], "strength" => md[3] }
+        @result = { "hole" => md[1].split, "hand" => hand, "strength" => strength }
       else
         raise "received unexpected result #{src}"
       end

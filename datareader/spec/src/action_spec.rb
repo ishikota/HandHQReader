@@ -4,12 +4,24 @@ describe Action do
   let(:act) { Action.new(src) }
 
   describe "ante" do
-    let(:src) {
-      "eXXdS46B0E4apgZgp7gHFw - Ante $2.50"
-    }
-    
-    it "should setup" do
-      check(act, "eXXdS46B0E4apgZgp7gHFw", Action::ANTE, 2.5, 0)
+    context "pattern1" do
+      let(:src) {
+        "eXXdS46B0E4apgZgp7gHFw - Ante $2.50"
+      }
+      
+      it "should setup" do
+        check(act, "eXXdS46B0E4apgZgp7gHFw", Action::ANTE, 2.5, 0)
+      end
+    end
+
+    context "pattern2" do
+      let(:src) {
+        "eXXdS46B0E4apgZgp7gHFw - Ante returned $2.50"
+      }
+      
+      it "should setup" do
+        check(act, "eXXdS46B0E4apgZgp7gHFw", Action::ANTE, 2.5, 0)
+      end
     end
   end
 
@@ -36,12 +48,23 @@ describe Action do
   end
 
   describe "allin" do
-    let(:src) {
-      "J4+irtFaN4tesOvvW9zmAQ - All-In $3.73"
-    }
+    context "pattern1" do
+      let(:src) {
+        "J4+irtFaN4tesOvvW9zmAQ - All-In $3.73"
+      }
 
-    it "should setup" do
-      check(act, "J4+irtFaN4tesOvvW9zmAQ", Action::ALLIN, 3.73, 0)
+      it "should setup" do
+        check(act, "J4+irtFaN4tesOvvW9zmAQ", Action::ALLIN, 3.73, 0)
+      end
+    end
+    context "pattern2" do
+      let(:src) {
+        "c2tiA/SMUK+T0PsP2rCOGA - All-In(Raise) $1,024.75 to $1,024.75"
+      }
+
+      it "should setup" do
+        check(act, "c2tiA/SMUK+T0PsP2rCOGA", Action::ALLIN, 1024.75, 1024.75)
+      end
     end
   end
 

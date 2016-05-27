@@ -1,3 +1,4 @@
+require 'date'
 class Round
   include RoundReadHelper
   attr :round_id, :blind, :play_time, :rule, :force_pay, :table, :streets, :showdown, :summary
@@ -10,9 +11,10 @@ class Round
   SHOWDOWN = 5
   SUMMARY = 6
 
-  def initialize
+  def initialize(src)
     @force_pay = []
     @streets = []
+    read_src(src)
   end
 
   def read_src(src)
@@ -36,7 +38,9 @@ class Round
         @table.players << Player.new(line)
       elsif line.match(/Posts .*? blind/) || line.match(/ Ante /)
         @force_pay << Action.new(line)
-      elsif line.match(/ sitout /)
+      elsif line.match(/Posts .*?/)
+        # Posts $5
+      elsif line.match(/ sitout /) or line.match(/sit out/)
         # TODO handle
       else
         raise "Received unexpected round info : #{line}"
@@ -45,14 +49,15 @@ class Round
   end
 
   def set_stage_info(line)
-    md = line.match(/Stage #([\d]*): ([\w\s]*) \$([\d\.]*) - (\d{4})-(\d{2})-(\d{2}) (\d{2}:\d{2}:\d{2})/)
+    md = line.match(/Stage #([\d]*): ([\w\s\d\(\)]*) \$([\d\.,]*)/)
     @round_id = md[1]
     @rule = md[2]
-    @blind = md[3].to_f
-    y = md[4].to_i
-    m = md[5].to_i
-    d = md[6].to_i
-    h, mi, s = md[7].split(":").map(&:to_i)
+    @blind = md[3].gsub(",","").to_f
+    md = line.match(/ - (\d{4})-(\d{2})-(\d{2}) (\d{2}:\d{2}:\d{2})/)
+    y = md[1].to_i
+    m = md[2].to_i
+    d = md[3].to_i
+    h, mi, s = md[4].split(":").map(&:to_i)
 
     @play_time = DateTime.new(y, m, d, h, mi, s)
   end

@@ -1,0 +1,35 @@
+Stage #3017243630: Holdem  No Limit $10, $2.50 ante - 2009-07-01 00:00:26 (ET)
+Table: CLEO AVE (Real Money) Seat #2 is the dealer
+Seat 2 - XrM1XlN29RxmLx3oZHhG0w ($1,515 in chips)
+Seat 3 - X+u4T/E5ANkyZLKm1YjqwQ ($2,067.40 in chips)
+Seat 4 - wyXD1O26Buq3VWHAij37Jg ($1,987.50 in chips)
+Seat 5 - 3wT3m+GDGtVWU1KR2MWJ1Q ($1,171 in chips)
+Seat 6 - /P+7Z0P/b7YiK60FW9dRAQ ($1,710.50 in chips)
+Seat 1 - eXXdS46B0E4apgZgp7gHFw ($2,000 in chips)
+eXXdS46B0E4apgZgp7gHFw - Ante $2.50
+XrM1XlN29RxmLx3oZHhG0w - Ante $2.50
+X+u4T/E5ANkyZLKm1YjqwQ - Ante $2.50
+wyXD1O26Buq3VWHAij37Jg - Ante $2.50
+3wT3m+GDGtVWU1KR2MWJ1Q - Ante $2.50
+/P+7Z0P/b7YiK60FW9dRAQ - Ante $2.50
+X+u4T/E5ANkyZLKm1YjqwQ - Posts small blind $5
+wyXD1O26Buq3VWHAij37Jg - Posts big blind $10
+eXXdS46B0E4apgZgp7gHFw - sitout (wait for BB)
+eXXdS46B0E4apgZgp7gHFw - Ante returned $2.50
+*** POCKET CARDS ***
+3wT3m+GDGtVWU1KR2MWJ1Q - Raises $47.50 to $47.50
+/P+7Z0P/b7YiK60FW9dRAQ - Folds
+XrM1XlN29RxmLx3oZHhG0w - Folds
+X+u4T/E5ANkyZLKm1YjqwQ - Folds
+wyXD1O26Buq3VWHAij37Jg - Folds
+3wT3m+GDGtVWU1KR2MWJ1Q - returned ($37.50) : not called
+*** SHOW DOWN ***
+3wT3m+GDGtVWU1KR2MWJ1Q - Does not show
+3wT3m+GDGtVWU1KR2MWJ1Q Collects $37.50 from main pot
+*** SUMMARY ***
+Total Pot($37.50)
+Seat 2: XrM1XlN29RxmLx3oZHhG0w (dealer) Folded on the POCKET CARDS
+Seat 3: X+u4T/E5ANkyZLKm1YjqwQ (small blind) Folded on the POCKET CARDS
+Seat 4: wyXD1O26Buq3VWHAij37Jg (big blind) Folded on the POCKET CARDS
+Seat 5: 3wT3m+GDGtVWU1KR2MWJ1Q collected Total ($37.50)
+Seat 6: /P+7Z0P/b7YiK60FW9dRAQ Folded on the POCKET CARDS

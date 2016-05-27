@@ -1,0 +1,111 @@
+Stage #3064281570: Holdem  No Limit $0.50 - 2009-07-14 11:53:01 (ET)
+Table: DAYTONA AVE (Real Money) Seat #6 is the dealer
+Seat 6 - 4u2pNoT+QwzOaSvZLwZ1GQ ($57.20 in chips)
+Seat 1 - HfmfnRWlfRYAiphuYCR1+A ($35.20 in chips)
+Seat 2 - 0FSdOfGRvW4qZJQZLAVpYA ($20.75 in chips)
+Seat 3 - 9cvXmmXeFlRXmmB2aW8pBQ ($59 in chips)
+Seat 4 - rEhwZERyPtIw/Dz3Yg3RgQ ($179.68 in chips)
+Seat 5 - OEXztHVBBUq7wA44Plrifg ($86.40 in chips)
+HfmfnRWlfRYAiphuYCR1+A - Posts small blind $0.25
+0FSdOfGRvW4qZJQZLAVpYA - Posts big blind $0.50
+*** POCKET CARDS ***
+9cvXmmXeFlRXmmB2aW8pBQ - Folds
+rEhwZERyPtIw/Dz3Yg3RgQ - Folds
+OEXztHVBBUq7wA44Plrifg - Calls $0.50
+4u2pNoT+QwzOaSvZLwZ1GQ - Folds
+HfmfnRWlfRYAiphuYCR1+A - Calls $0.25
+0FSdOfGRvW4qZJQZLAVpYA - Raises $1.50 to $2
+OEXztHVBBUq7wA44Plrifg - Calls $1.50
+HfmfnRWlfRYAiphuYCR1+A - Folds
+*** FLOP *** [6d Qh 8s]
+0FSdOfGRvW4qZJQZLAVpYA - Bets $0.50
+OEXztHVBBUq7wA44Plrifg - Calls $0.50
+*** TURN *** [6d Qh 8s] [Js]
+0FSdOfGRvW4qZJQZLAVpYA - Bets $0.50
+OEXztHVBBUq7wA44Plrifg - Raises $2 to $2
+0FSdOfGRvW4qZJQZLAVpYA - Calls $1.50
+*** RIVER *** [6d Qh 8s Js] [5c]
+0FSdOfGRvW4qZJQZLAVpYA - Checks
+OEXztHVBBUq7wA44Plrifg - Bets $3.50
+0FSdOfGRvW4qZJQZLAVpYA - Folds
+OEXztHVBBUq7wA44Plrifg - returned ($3.50) : not called
+*** SHOW DOWN ***
+OEXztHVBBUq7wA44Plrifg - Does not show
+OEXztHVBBUq7wA44Plrifg Collects $8.55 from main pot
+*** SUMMARY ***
+Total Pot($9.50) | Rake ($0.45) | Jackpot Rake ($0.50)
+Board [6d Qh 8s Js 5c]
+Seat 1: HfmfnRWlfRYAiphuYCR1+A (small blind) Folded on the POCKET CARDS
+Seat 2: 0FSdOfGRvW4qZJQZLAVpYA (big blind) Folded on the RIVER
+Seat 3: 9cvXmmXeFlRXmmB2aW8pBQ Folded on the POCKET CARDS
+Seat 4: rEhwZERyPtIw/Dz3Yg3RgQ Folded on the POCKET CARDS
+Seat 5: OEXztHVBBUq7wA44Plrifg collected Total ($8.55) HI:($8.55)  [Does not show]
+Seat 6: 4u2pNoT+QwzOaSvZLwZ1GQ (dealer) Folded on the POCKET CARDS
+
+
+
+Stage #3064277812: Holdem (1 on 1)  No Limit $0.50 - 2009-07-14 11:53:06 (ET)
+Table: BURNS RD (Real Money) Seat #6 is the dealer
+Seat 6 - 8utzZeaKgkpt8ofv9hqBFg ($194.31 in chips)
+Seat 4 - vpE5Ux191EYMxT2GPzpK+A ($127.65 in chips)
+8utzZeaKgkpt8ofv9hqBFg - Posts small blind $0.25
+vpE5Ux191EYMxT2GPzpK+A - Posts big blind $0.50
+*** POCKET CARDS ***
+8utzZeaKgkpt8ofv9hqBFg - Folds
+*** SHOW DOWN ***
+vpE5Ux191EYMxT2GPzpK+A - Does not show
+vpE5Ux191EYMxT2GPzpK+A Collects $0.75 from main pot
+*** SUMMARY ***
+Total Pot($0.75)
+Seat 4: vpE5Ux191EYMxT2GPzpK+A (big blind) collected Total ($0.75)
+Seat 6: 8utzZeaKgkpt8ofv9hqBFg (dealer) (small blind) Folded on the POCKET CARDS
+
+
+
+Stage #3064273498: Holdem  No Limit $0.50 - 2009-07-14 11:53:08 (ET)
+Table: DEKALB (Real Money) Seat #4 is the dealer
+Seat 4 - CitJ5KMx3dcvqo3A6KOwfg ($97.42 in chips)
+Seat 5 - ihlD7aKqoLH40rNPc6gBag ($57.10 in chips)
+Seat 6 - XhnpogjPIJM10FhxKg9y3g ($46.25 in chips)
+Seat 7 - OlTk5/LshpUogB6dcoy9cw ($49.25 in chips)
+Seat 8 - xnbbBgUS+eVAAHrb3DQTVw ($21.95 in chips)
+Seat 9 - 1Nc5jFlPmhI8+l7iyrLXZw ($21.20 in chips)
+Seat 1 - 3HH88c9WLWFk3qs1TvpLTw ($108.26 in chips)
+Seat 3 - bqxbwwzsxHfXmR91a5RyHQ ($58.57 in chips)
+ihlD7aKqoLH40rNPc6gBag - Posts small blind $0.25
+XhnpogjPIJM10FhxKg9y3g - Posts big blind $0.50
+*** POCKET CARDS ***
+OlTk5/LshpUogB6dcoy9cw - Folds
+xnbbBgUS+eVAAHrb3DQTVw - Calls $0.50
+1Nc5jFlPmhI8+l7iyrLXZw - Folds
+3HH88c9WLWFk3qs1TvpLTw - Folds
+bqxbwwzsxHfXmR91a5RyHQ - Folds
+CitJ5KMx3dcvqo3A6KOwfg - Folds
+ihlD7aKqoLH40rNPc6gBag - Calls $0.25
+XhnpogjPIJM10FhxKg9y3g - Checks
+*** FLOP *** [3h 9s As]
+ihlD7aKqoLH40rNPc6gBag - Checks
+XhnpogjPIJM10FhxKg9y3g - Checks
+xnbbBgUS+eVAAHrb3DQTVw - Bets $2
+ihlD7aKqoLH40rNPc6gBag - Folds
+XhnpogjPIJM10FhxKg9y3g - Folds
+xnbbBgUS+eVAAHrb3DQTVw - returned ($2) : not called
+*** SHOW DOWN ***
+xnbbBgUS+eVAAHrb3DQTVw - Does not show
+xnbbBgUS+eVAAHrb3DQTVw Collects $1.45 from main pot
+*** SUMMARY ***
+Total Pot($1.50) | Rake ($0.05)
+Board [3h 9s As]
+Seat 1: 3HH88c9WLWFk3qs1TvpLTw Folded on the POCKET CARDS
+Seat 3: bqxbwwzsxHfXmR91a5RyHQ Folded on the POCKET CARDS
+Seat 4: CitJ5KMx3dcvqo3A6KOwfg (dealer) Folded on the POCKET CARDS
+Seat 5: ihlD7aKqoLH40rNPc6gBag (small blind) Folded on the FLOP
+Seat 6: XhnpogjPIJM10FhxKg9y3g (big blind) Folded on the FLOP
+Seat 7: OlTk5/LshpUogB6dcoy9cw Folded on the POCKET CARDS
+Seat 8: xnbbBgUS+eVAAHrb3DQTVw collected Total ($1.45) HI:($1.45)  [Does not show]
+Seat 9: 1Nc5jFlPmhI8+l7iyrLXZw Folded on the POCKET CARDS
+
+
+
+
+
