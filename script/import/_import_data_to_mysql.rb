@@ -13,7 +13,17 @@ Dir[File.join(root, "datareader", "src", "**/*.rb")].each{ |f| require f }
 round_data = FileReader.read(data_file_path)
 
 # convert round text data into ruby object
-round_objs = round_data.map { |src| Round.new(src) }
+round_objs = []
+p "[LOG] Start to parse data src into Round object."
+round_data.each do |src|
+  begin
+    obj = Round.new(src)
+    round_objs << obj
+  rescue Exception => e
+    p "[ERROR] Failed to parse round object on file [#{data_file_path}]"
+  end
+end
+p "[LOG] Finish to parse (success rate : #{round_objs.size}/#{round_data.size})"
 
 # Fetch round info from object and write into db
 writer = DBWriter.new
@@ -30,6 +40,6 @@ round_objs.each { |round|
   end
 }
 writer.clear_data
-p "[LOG] Inserted #{write_counter} round data #{write_counter}/#{round_objs.size}"
+p "[LOG] Inserted #{write_counter} round data (success rate : #{write_counter}/#{round_objs.size})"
 p "[LOG] Finish script. bye..."
 
