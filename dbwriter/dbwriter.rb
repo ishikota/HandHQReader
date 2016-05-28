@@ -15,6 +15,41 @@ class DBWriter
     @client.query(query_insert_round(round))
     round.table.players.each { |player|
       @client.query(query_insert_playerinfo(round, player))
+      @client.query(query_insert_round_playerinfo_relationship(round, player))
+    }
+    round.streets.each { |street|
+      @client.query(query_insert_board)
+      street.community_card.each { |card|
+        @client.query(query_board_card_relation(card))
+      }
+      @client.query(query_insert_street(street))
+      street.actions.select{ |a| a.action }.each { |action|
+        insert(query_insert_action(action))
+        @client.query(query_insert_street_action_relation)
+      }
+    }
+
+    @client.query(query_insert_board)
+    @client.query(query_insert_summary(round.summary))
+    @client.query(query_inert_round_summary_relation(round.round_id))
+    round.summary.board.each { |card|
+      @client.query(query_board_card_relation(card))
+    }
+    round.summary.seat_results.each { |result|
+      result_query = case result.type
+      when 0 # collected
+        query_insert_collect_result(result)
+      when 1 # folded
+        query_insert_folded_result(result)
+      when 2 # won
+        query_insert_won_result(result)
+      when 3 # muck
+        query_insert_muck_result(result)
+      when 4 # lost
+        query_insert_lost_result(result)
+      end
+      @client.query(query_insert_seat_result(result))
+      @client.query(result_query)
     }
   end
 
@@ -29,7 +64,7 @@ class DBWriter
 
     cols = ["round_id", "play_time", "rule", "blind", "dealer_position", "table_name"]
     vals = [round_id, play_time, rule, blind, dealer, table_name]
-    query_insert("round", cols, vals)
+    query_smart_insert("round", cols, vals)
   end
 
   def query_insert_playerinfo(round, player)
@@ -44,28 +79,136 @@ class DBWriter
       cols.delete("role")
       vals.delete(role)
     end
-    query_insert("player_info", cols, vals)
+    query_smart_insert("player_info", cols, vals)
+  end
+
+  def query_insert_round_playerinfo_relationship(round, player)
+    round_id = "'#{round.round_id}'"
+    player_info_id = "(SELECT MAX(id) FROM player_info WHERE player_id = '#{player.player_id}')"
+
+    cols = ["round_id", "player_info_id"]
+    vals = [round_id, player_info_id]
+    query_naive_insert("round_playerinfo_relation", cols, vals)
+  end
+
+  def query_insert_board()
+    query_naive_insert("board", [], [])
+  end
+
+  def query_board_card_relation(card)
+    board_id = "(SELECT MAX(id) FROM board)"
+    cols = ["board_id", "card_id"]
+    vals = [board_id, card_to_id(card)]
+    query_naive_insert("board_card_relation", cols, vals)
+  end
+
+  def card_to_id(card)
+    suit_map = { "c" => 0, "d" => 1, "h" => 2, "s" => 3 } 
+    rank_map = {
+      "A" => 1, "2" => 2, "3" => 3, "4" => 4, "5" => 5, "6" => 6, "7" => 7,
+      "8" => 8, "9" => 9, "10" => 10, "J" => 11, "Q" => 12, "K" => 13
+    }
+    r = rank_map[card[0...-1]]
+    s = suit_map[card[-1]]
+    r + 13*s
+  end
+
+  def query_insert_street(street)
+    type_map = { "POCKET CARDS" => 1, "FLOP" => 2, "TURN" => 3, "RIVER" => 4, "SHOWDOWN" => 5 }
+    type = type_map[street.name]
+    board_id = "(SELECT MAX(id) FROM board)"
+    cols = ["type", "board_id"]
+    vals = [type, board_id]
+    query_naive_insert("street", cols, vals)
+  end
+
+  def query_insert_action(action)
+    player_id = action.player_id
+    type = action.action
+    bet_amount = action.bet_amount
+    add_amount = action.add_amount
+    cols = ["player_id", "type", "bet_amount", "add_amount"]
+    vals = [player_id, type, bet_amount, add_amount]
+    query_smart_insert("action", cols, vals)
+  end
+
+  def query_insert_street_action_relation
+    street_id = "(SELECT MAX(id) FROM street)"
+    action_id = "(SELECT MAX(id) FROM action)"
+    cols = ["street_id", "action_id"]
+    vals = [street_id, action_id]
+    query_naive_insert("street_action_relation", cols, vals)
+  end
+
+  def query_insert_summary(summary)
+    pot = summary.pot
+    rake = summary.rake
+    jackpot_rake = summary.jackpot_rake
+    board_id = "(SELECT MAX(id) FROM board)"
+    cols = ["pot", "rake", "jackpot_rake", "board_id"]
+    vals = [pot, rake, jackpot_rake, board_id]
+    query_naive_insert("summary", cols, vals)
+  end
+
+  def query_inert_round_summary_relation(round_id)
+    "UPDATE round SET summary_id=(SELECT MAX(id) FROM summary) where round_id='#{round_id}'"
+  end
+
+  def query_insert_seat_result(result)
+    cols = ["player_id", "seat_position"]
+    vals = [result.player_id, result.position]
+    query_smart_insert("seat_result", cols, vals)
+  end
+
+  def query_insert_collect_result(result)
+    seat_result_id = "(SELECT MAX(id) FROM seat_result)"
+    amount = result.detail["amount"]
+
+    cols = ["seat_result_id", "amount"]
+    vals = [seat_result_id, amount]
+    query_naive_insert("collected_result", cols, vals)
+  end
+
+  def query_insert_folded_result(result)
+    street_map = { "POCKET CARDS" => 1, "FLOP" => 2, "TURN" => 3, "RIVER" => 4, "SHOWDOWN" => 5 }
+    seat_result_id = "(SELECT MAX(id) FROM seat_result)"
+    street_type = street_map[result.detail["street"]]
+    cols = ["seat_result_id", "street_type"]
+    vals = [seat_result_id, street_type]
+    query_naive_insert("folded_result", cols, vals)
+  end
+
+  def query_insert_won_result(result)
+    seat_result_id = "(SELECT MAX(id) FROM seat_result)"
+    amount = result.detail["amount"]
+    detail = "'#{result.detail["detail"]}'"
+    cols = ["seat_result_id", "amount", "detail"]
+    vals = [seat_result_id, amount, detail]
+    query_naive_insert("win_result", cols, vals)
+  end
+
+  def query_insert_muck_result(result)
+    seat_result_id = "(SELECT MAX(id) FROM seat_result)"
+    cols = ["seat_result_id"]
+    vals = [seat_result_id]
+    query_naive_insert("muck_result", cols, vals)
+  end
+
+  def query_insert_lost_result(result)
+    seat_result_id = "(SELECT MAX(id) FROM seat_result)"
+    detail = "'#{result.detail["detail"]}'"
+    cols = ["seat_result_id", "detail"]
+    vals = [seat_result_id, detail]
+    query_naive_insert("lost_result", cols, vals)
   end
 
   def clear_data
-    @client.query("DELETE FROM collected_result")
-    @client.query("DELETE FROM win_hole_relation")
-    @client.query("DELETE FROM win_result")
-    @client.query("DELETE FROM muck_hole_relation")
-    @client.query("DELETE FROM muck_result")
-    @client.query("DELETE FROM lost_hole_relation")
-    @client.query("DELETE FROM lost_result")
-    @client.query("DELETE FROM summary_result_relation")
     @client.query("DELETE FROM seat_result")
-    @client.query("DELETE FROM board_card_relation")
     @client.query("DELETE FROM board")
     @client.query("DELETE FROM summary")
-    @client.query("DELETE FROM street_action_relation")
     @client.query("DELETE FROM action")
-    @client.query("DELETE FROM round_street_relation")
     @client.query("DELETE FROM street")
     @client.query("DELETE FROM player_info")
-    @client.query("DELETE FROM round_playerinfo_relation")
     @client.query("DELETE FROM round")
   end
 
@@ -80,8 +223,21 @@ class DBWriter
 
   private
 
-    def query_insert(table, cols, vals)
+    def insert(query)
+      begin
+        @client.query(query)
+      rescue Exception => e
+        binding.pry
+        puts "[ERROR] on query [ #{query} ] with message [ #{e} ]"
+      end
+    end
+
+    def query_smart_insert(table, cols, vals)
       vals = vals.map { |v| v.is_a?(String) ? "'#{v}'" : v }
+      query_naive_insert(table, cols, vals)
+    end
+
+    def query_naive_insert(table, cols, vals)
       "INSERT INTO #{table} (#{cols.join(", ")}) VALUES (#{vals.join(", ")})"
     end
 
