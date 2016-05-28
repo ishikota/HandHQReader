@@ -20,43 +20,43 @@ CALL gen_card_data();
 DROP PROCEDURE gen_card_data;
 
 CREATE TABLE board (id int PRIMARY KEY AUTO_INCREMENT);
-CREATE TABLE board_card_relation (id int PRIMARY KEY AUTO_INCREMENT, board_id int, card_id int, FOREIGN KEY(board_id) REFERENCES board(id), FOREIGN KEY(card_id) REFERENCES card(id));
+CREATE TABLE board_card_relation (id int PRIMARY KEY AUTO_INCREMENT, board_id int, card_id int, FOREIGN KEY(board_id) REFERENCES board(id) ON UPDATE CASCADE ON DELETE CASCADE, FOREIGN KEY(card_id) REFERENCES card(id));
 
 CREATE TABLE street_name (id int PRIMARY KEY AUTO_INCREMENT, name varchar(15));
 INSERT INTO street_name VALUES (1, "POCKET CARD"), (2, "FLOP"), (3, "TURN"), (4, "RIVER"), (5, "SHOWDOWN");
 
 CREATE TABLE seat_result (id  int PRIMARY KEY AUTO_INCREMENT, player_id char(30), seat_position int);
 
-CREATE TABLE lost_result (id int PRIMARY KEY AUTO_INCREMENT, seat_result_id int, detail text, FOREIGN KEY(seat_result_id) REFERENCES seat_result(id));
+CREATE TABLE lost_result (id int PRIMARY KEY AUTO_INCREMENT, seat_result_id int, detail text, FOREIGN KEY(seat_result_id) REFERENCES seat_result(id) ON UPDATE CASCADE ON DELETE CASCADE);
 CREATE TABLE lost_hole_relation(id int PRIMARY KEY AUTO_INCREMENT, result_id int, card_id int, FOREIGN KEY(result_id) REFERENCES lost_result(id), FOREIGN KEY(card_id) REFERENCES card(id));
 
-CREATE TABLE muck_result (id int PRIMARY KEY AUTO_INCREMENT, seat_result_id int, FOREIGN KEY(seat_result_id) REFERENCES seat_result(id));
+CREATE TABLE muck_result (id int PRIMARY KEY AUTO_INCREMENT, seat_result_id int, FOREIGN KEY(seat_result_id) REFERENCES seat_result(id) ON UPDATE CASCADE ON DELETE CASCADE);
 CREATE TABLE muck_hole_relation (id int PRIMARY KEY AUTO_INCREMENT, result_id int, card_id int, FOREIGN KEY(result_id) REFERENCES muck_result(id), FOREIGN KEY(card_id) REFERENCES card(id));
 
-CREATE TABLE win_result (id int PRIMARY KEY AUTO_INCREMENT, amout float, detail text, seat_result_id int, FOREIGN KEY(seat_result_id) REFERENCES seat_result(id));
+CREATE TABLE win_result (id int PRIMARY KEY AUTO_INCREMENT, amount float, detail text, seat_result_id int, FOREIGN KEY(seat_result_id) REFERENCES seat_result(id) ON UPDATE CASCADE ON DELETE CASCADE);
 CREATE TABLE win_hole_relation (id int PRIMARY KEY AUTO_INCREMENT, result_id int, card_id int, FOREIGN KEY(result_id) REFERENCES win_result(id), FOREIGN KEY(card_id) REFERENCES card(id));
 
-CREATE TABLE folded_result (id int PRIMARY KEY AUTO_INCREMENT, street_type int, seat_result_id int, FOREIGN KEY (street_type) REFERENCES street_name(id), FOREIGN KEY(seat_result_id) REFERENCES seat_result(id));
+CREATE TABLE folded_result (id int PRIMARY KEY AUTO_INCREMENT, street_type int, seat_result_id int, FOREIGN KEY (street_type) REFERENCES street_name(id), FOREIGN KEY(seat_result_id) REFERENCES seat_result(id) ON UPDATE CASCADE ON DELETE CASCADE);
 
-CREATE TABLE collected_result (id int PRIMARY KEY AUTO_INCREMENT, amount float, seat_result_id int, FOREIGN KEY(seat_result_id) REFERENCES seat_result(id));
+CREATE TABLE collected_result (id int PRIMARY KEY AUTO_INCREMENT, amount float, seat_result_id int, FOREIGN KEY(seat_result_id) REFERENCES seat_result(id) ON UPDATE CASCADE ON DELETE CASCADE);
 
-CREATE TABLE summary (id int PRIMARY KEY AUTO_INCREMENT, pot float, rake float, jackpot_rake float, board_id int, FOREIGN KEY (board_id) REFERENCES board(id));
+CREATE TABLE summary (id int PRIMARY KEY AUTO_INCREMENT, pot float, rake float, jackpot_rake float, board_id int, FOREIGN KEY (board_id) REFERENCES board(id) ON UPDATE CASCADE ON DELETE SET NULL);
 
-CREATE TABLE summary_result_relation (id int PRIMARY KEY AUTO_INCREMENT, summary_id int, seat_result_id int, FOREIGN KEY(summary_id) REFERENCES summary(id), FOREIGN KEY(seat_result_id) REFERENCES seat_result(id));
+CREATE TABLE summary_result_relation (id int PRIMARY KEY AUTO_INCREMENT, summary_id int, seat_result_id int, FOREIGN KEY(summary_id) REFERENCES summary(id) ON UPDATE CASCADE ON DELETE CASCADE, FOREIGN KEY(seat_result_id) REFERENCES seat_result(id) ON UPDATE CASCADE ON DELETE SET NULL);
 
 CREATE TABLE action_name (id int PRIMARY KEY, name varchar(20));
 INSERT INTO action_name VALUES (0, "ANTE"), (1, "SMALL BLIND"), (2, "BIG BLIND"), (3, "FOLD"), (4, "CHECK"), (5, "CALL"), (6, "RAISE"), (7, "BET"), (8, "ALLIN");
 
 CREATE TABLE action (id int PRIMARY KEY AUTO_INCREMENT, player_id varchar(30), type int, bet_amount float, add_amount float, FOREIGN KEY(type) REFERENCES action_name(id));
 
-CREATE TABLE street (id int PRIMARY KEY AUTO_INCREMENT, type int, board_id int, FOREIGN KEY(type) REFERENCES street_name(id), FOREIGN KEY(board_id) REFERENCES board(id));
+CREATE TABLE street (id int PRIMARY KEY AUTO_INCREMENT, type int, board_id int, FOREIGN KEY(type) REFERENCES street_name(id), FOREIGN KEY(board_id) REFERENCES board(id) ON UPDATE CASCADE ON DELETE SET NULL);
 
-CREATE TABLE street_action_relation (id int PRIMARY KEY AUTO_INCREMENT, street_id int, action_id int, FOREIGN KEY(street_id) REFERENCES street(id), FOREIGN KEY(action_id) REFERENCES action(id));
+CREATE TABLE street_action_relation (id int PRIMARY KEY AUTO_INCREMENT, street_id int, action_id int, FOREIGN KEY(street_id) REFERENCES street(id) ON UPDATE CASCADE ON DELETE CASCADE, FOREIGN KEY(action_id) REFERENCES action(id) ON UPDATE CASCADE ON DELETE CASCADE);
 
 CREATE TABLE player_info (id int PRIMARY KEY AUTO_INCREMENT, player_id char(30), seat_position int, stack float, role ENUM("sb", "bb", "dealer"));
 
-CREATE TABLE round (round_id char(15) PRIMARY KEY, play_time datetime, rule text, blind float, dealer_position int, table_name varchar(30), summary_id int, FOREIGN KEY(summary_id) REFERENCES summary(id));
+CREATE TABLE round (round_id char(15) PRIMARY KEY, play_time datetime, rule text, blind float, dealer_position int, table_name varchar(30), summary_id int, FOREIGN KEY(summary_id) REFERENCES summary(id) ON UPDATE CASCADE ON DELETE SET NULL);
 
-CREATE TABLE round_playerinfo_relation (id int PRIMARY KEY AUTO_INCREMENT, round_id char(15), player_info_id int, FOREIGN KEY(round_id) REFERENCES round(round_id), FOREIGN KEY(player_info_id) REFERENCES player_info(id));
+CREATE TABLE round_playerinfo_relation (id int PRIMARY KEY AUTO_INCREMENT, round_id char(15), player_info_id int, FOREIGN KEY(round_id) REFERENCES round(round_id) ON UPDATE CASCADE ON DELETE CASCADE, FOREIGN KEY(player_info_id) REFERENCES player_info(id) ON UPDATE CASCADE ON DELETE CASCADE);
 
-CREATE TABLE round_street_relation (id int PRIMARY KEY AUTO_INCREMENT, round_id char(15), street_id int, FOREIGN KEY(round_id) REFERENCES round(round_id), FOREIGN KEY(street_id) REFERENCES street(id));
+CREATE TABLE round_street_relation (id int PRIMARY KEY AUTO_INCREMENT, round_id char(15), street_id int, FOREIGN KEY(round_id) REFERENCES round(round_id) ON UPDATE CASCADE ON DELETE CASCADE, FOREIGN KEY(street_id) REFERENCES street(id) ON UPDATE CASCADE ON DELETE CASCADE);
