@@ -45,6 +45,10 @@ describe Round do
     it "should setup" do
       expect(round.round_id).to eq "3017243630"
     end
+
+    it "should not raise error" do
+      expect { round.read_round_info(["No small blind is posted due to player leave"]) }.not_to raise_error
+    end
   end
 
 end

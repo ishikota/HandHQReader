@@ -40,7 +40,7 @@ class Round
         @force_pay << Action.new(line)
       elsif line.match(/Posts .*?/)
         # Posts $5
-      elsif line.match(/ sitout /) or line.match(/sit out/)
+      elsif line.match(/ sitout /) or line.match(/sit out/) or line.match(/leave/)
         # TODO handle
       else
         raise "Received unexpected round info : #{line}"
