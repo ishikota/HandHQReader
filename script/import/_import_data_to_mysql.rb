@@ -2,7 +2,7 @@
 # ruby ~/handHQReader/script/import_data_to_mysql.rb "handhq_data_file_path"
 
 # root path of handHQReader like "/Users/kota/development/handHQReader"
-root = File.absolute_path(File.join(File.dirname(__FILE__), ".."))
+root = File.absolute_path(File.join(File.dirname(__FILE__), "..", ".."))
 data_file_path = ARGV.first
 
 require File.join(root, "dbwriter", "dbwriter.rb")
