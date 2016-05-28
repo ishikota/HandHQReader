@@ -1,0 +1,6 @@
+cd=`dirname $0`
+sql_path=$cd$'/../dbwriter/handhq_db_setup.sql'
+mysqladmin -u root -p drop handhq
+mysqladmin -u root -p create handhq
+mysql -u root -p handhq < $sql_path
+
