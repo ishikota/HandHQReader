@@ -12,5 +12,5 @@ Find.find(src_dir_path) { |file|
   next unless FileTest.file?(file) && file.match(/.*handhq.*txt$/)
   puts "Start importing file [#{file}] ..."
   puts `ruby #{script_path} #{file}`
-  puts "Finished importing file [#{file}]"
+  puts "Finished importing file [#{file}]\n"
 }
