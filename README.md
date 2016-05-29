@@ -29,7 +29,7 @@ cd ~/dev/HandHQReader
 DB scheme diagram is [here](https://cacoo.com/diagrams/cjHdIs6IoiZIa5zy).
 
 ### 5. Install terminal notifier gem to receive notification when script finished
-We use terminal notifier to notify finish of script.
+We use [terminal notifier](https://github.com/julienXX/terminal-notifier) to notify finish of script.
 (You can open script log file by clicking popped up message)
 ```
 cd ~/dev/HandHQReader
