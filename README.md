@@ -26,9 +26,17 @@ cd ~/dev/HandHQReader
 ./script/reconstruct_db
 ```
 
-### 5. Import hand history data into database
+### 5. Install terminal notifier gem to receive notification when script finished
+We use terminal notifier to notify finish of script.
+(You can open script log file by clicking popped up message)
+```
+cd ~/dev/HandHQReader
+bundle install
+```
+
+### 6. Import hand history data into database
 Below script reads all handhq history file and write into handhq database.
 ```
 cd ~/dev/HandHQReader
-ruby script/import/import_all_raw_data.rb
+./script/import/import_all_raw_data
 ```
