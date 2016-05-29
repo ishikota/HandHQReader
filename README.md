@@ -21,10 +21,12 @@ cd ~/dev/HandHQReader
 
 ### 4. Setup database to store hand history
 **[Be caful!!] below script try to create handhq db by root user**
+
 ```
 cd ~/dev/HandHQReader
 ./script/reconstruct_db
 ```
+DB scheme diagram is [here](https://cacoo.com/diagrams/cjHdIs6IoiZIa5zy).
 
 ### 5. Install terminal notifier gem to receive notification when script finished
 We use terminal notifier to notify finish of script.
