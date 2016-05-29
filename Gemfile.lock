@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    terminal-notifier (1.6.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  terminal-notifier
+
+BUNDLED WITH
+   1.11.2

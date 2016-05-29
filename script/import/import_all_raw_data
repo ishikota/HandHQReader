@@ -14,9 +14,15 @@ script_path = File.join(File.expand_path(File.dirname($0)), "_import_data_to_mys
 log_path = File.join(File.expand_path(File.dirname($0)), "..", "..", "log", "import", "#{Time.now.to_i}.log")
 log = Logger.new(log_path)
 
+start_time = Time.now
 Find.find(src_dir_path) { |file|
   next unless FileTest.file?(file) && file.match(/.*handhq.*txt$/)
   log.info "Start importing file [#{file}] ..."
   log.info `ruby #{script_path} #{file}`
   log.info "Finished importing file [#{file}]\n"
 }
+finish_time = Time.now
+log.info "Execution time : #{finish_time - start_time} (s)"
+
+# Notify finish of script by terminal-notifier
+`terminal-notifier -title 'HandHQReader' -message 'Finished' -sound Glass -open '#{log_path}'`
