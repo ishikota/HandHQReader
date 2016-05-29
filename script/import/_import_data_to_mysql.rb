@@ -29,7 +29,6 @@ p "[LOG] Finish to parse (success rate : #{round_objs.size}/#{round_data.size})"
 writer = DBWriter.new
 write_counter = 0
 
-writer.clear_data
 round_objs.each { |round|
   begin
     writer.write_round_data(round)
@@ -39,7 +38,6 @@ round_objs.each { |round|
     p "[ERROR] #{e}"
   end
 }
-writer.clear_data
 p "[LOG] Inserted #{write_counter} round data (success rate : #{write_counter}/#{round_objs.size})"
 p "[LOG] Finish script. bye..."
 

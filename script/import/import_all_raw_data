@@ -1,4 +1,7 @@
+#!/usr/bin/env ruby
+
 require 'find'
+require 'logger'
 
 # This script import all handhq source which is under raw_data directory.
 # Becareful not to include space character in handhq source file like below
@@ -8,9 +11,12 @@ require 'find'
 
 src_dir_path = File.join(File.expand_path(File.dirname($0)), "..", "..", "raw_data")
 script_path = File.join(File.expand_path(File.dirname($0)), "_import_data_to_mysql.rb")
+log_path = File.join(File.expand_path(File.dirname($0)), "..", "..", "log", "import", "#{Time.now.to_i}.log")
+log = Logger.new(log_path)
+
 Find.find(src_dir_path) { |file|
   next unless FileTest.file?(file) && file.match(/.*handhq.*txt$/)
-  puts "Start importing file [#{file}] ..."
-  puts `ruby #{script_path} #{file}`
-  puts "Finished importing file [#{file}]\n"
+  log.info "Start importing file [#{file}] ..."
+  log.info `ruby #{script_path} #{file}`
+  log.info "Finished importing file [#{file}]\n"
 }
